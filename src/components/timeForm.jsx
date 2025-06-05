@@ -118,38 +118,38 @@ const TimeForm = () => {
   };
 
   return (
-    <div className="min-h-screen w-full flex items-center justify-center">
+    <div className="min-h-screen w-full flex items-center justify-center px-4" style={{ background: 'linear-gradient(to bottom, #1e3a8a, #2563eb)' }}>
       <div className="w-full max-w-2xl" style={{ height: 'auto' }}>
         <form
           onSubmit={handleSubmit}
-          className="relative z-10 space-y-8 backdrop-blur-md bg-orange-500/30 p-8 rounded-lg shadow-2xl border border-orange-600"
+          className="relative z-10 space-y-8 backdrop-blur-md bg-white/10 p-6 md:p-8 rounded-lg shadow-2xl border border-blue-300"
         >
-          <h2 className="text-4xl font-bold text-red-700 text-center mb-6">Time Tracker</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-4 md:mb-6">Time Tracker</h2>
           {times.map((time, idx) => (
             <div
               key={idx}
-              className="relative z-10 w-full max-w-3xl p-6 backdrop-blur-md bg-orange-600/30 shadow-2xl rounded-xl border border-orange-500"
+              className="relative z-10 w-full p-4 md:p-6 backdrop-blur-md bg-white/20 shadow-2xl rounded-xl border border-blue-200"
             >
-              <div className="flex flex-row w-full gap-4">
-                <div className="flex flex-col w-full md:w-1/2">
-                  <label className="text-sm font-semibold text-red-700 mb-2">Check In</label>
+              <div className="flex flex-col md:flex-row w-full gap-4">
+                <div className="flex flex-col w-full">
+                  <label className="text-sm font-semibold text-white mb-2">Check In</label>
                   <input
                     type="text"
                     value={time.checkIn}
                     onChange={(e) => handleChange(idx, 'checkIn', e.target.value)}
                     required
                     placeholder="HH:MM"
-                    className="px-4 py-2 border border-orange-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 text-gray-800 bg-orange-200/20 shadow-sm"
+                    className="px-4 py-2 border border-blue-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 text-gray-800 bg-white/80 shadow-sm"
                   />
                 </div>
-                <div className="flex flex-col w-full md:w-1/2">
-                  <label className="text-sm font-semibold text-red-700 mb-2">Check Out</label>
+                <div className="flex flex-col w-full">
+                  <label className="text-sm font-semibold text-white mb-2">Check Out</label>
                   <input
                     type="text"
                     value={time.checkOut}
                     onChange={(e) => handleChange(idx, 'checkOut', e.target.value)}
                     placeholder="HH:MM"
-                    className="px-4 py-2 border border-orange-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 text-gray-800 bg-orange-200/20 shadow-sm"
+                    className="px-4 py-2 border border-blue-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 text-gray-800 bg-white/80 shadow-sm"
                   />
                 </div>
               </div>
@@ -162,7 +162,7 @@ const TimeForm = () => {
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-6 w-6 text-red-600 hover:text-red-700"
+                  className="h-6 w-6 text-red-500 hover:text-red-600"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -173,30 +173,30 @@ const TimeForm = () => {
               </button>
             </div>
           ))}
-          <div className="relative z-10 w-full max-w-3xl p-6 backdrop-blur-md bg-orange-600/30 shadow-2xl rounded-xl border border-orange-500 flex flex-col items-center">
-            <p className="text-lg font-semibold text-red-700">Remaining Office Time: {remainingTimes.office}</p>
-            <p className="text-lg font-semibold text-red-700">Remaining Break Time: {remainingTimes.break}</p>
-            <p className="text-lg font-semibold text-red-700">Leaving Time: {remainingTimes.leaving}</p>
+          <div className="relative z-10 w-full p-4 md:p-6 backdrop-blur-md bg-white/20 shadow-2xl rounded-xl border border-blue-200 flex flex-col items-center">
+            <p className="text-base md:text-lg font-semibold text-white">Remaining Office Time: {remainingTimes.office}</p>
+            <p className="text-base md:text-lg font-semibold text-white">Remaining Break Time: {remainingTimes.break}</p>
+            <p className="text-base md:text-lg font-semibold text-white">Leaving Time: {remainingTimes.leaving}</p>
           </div>
-          <div className="flex flex-col items-center gap-4 mt-6">
+          <div className="flex flex-col items-center gap-4 mt-4 md:mt-6">
             <button
               type="button"
               onClick={addTimeField}
-              className="w-full bg-orange-800/30 hover:bg-orange-800/40 text-red-700 font-semibold px-6 py-3 rounded-lg shadow-md transition-colors focus:outline-none focus:ring-2 focus:ring-orange-400"
+              className="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold px-4 py-2 md:px-6 md:py-3 rounded-lg shadow-md transition-colors focus:outline-none focus:ring-2 focus:ring-blue-400"
             >
               Add More
             </button>
             <button
               type="submit"
-              className="w-full bg-orange-800/30 hover:bg-orange-800/40 text-red-700 font-semibold px-8 py-3 rounded-lg shadow-md transition-colors focus:outline-none focus:ring-2 focus:ring-orange-400"
+              className="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold px-4 py-2 md:px-8 md:py-3 rounded-lg shadow-md transition-colors focus:outline-none focus:ring-2 focus:ring-blue-400"
             >
               Submit
             </button>
           </div>
-          <div className="flex flex-col items-center mt-6">
+          <div className="flex flex-col items-center mt-4 md:mt-6">
             <label
               htmlFor="file-upload"
-              className="bg-orange-800/30 hover:bg-orange-800/40 text-red-700 font-semibold px-6 py-3 rounded-lg shadow-md transition-colors focus:outline-none focus:ring-2 focus:ring-orange-400 cursor-pointer flex items-center gap-2"
+              className="bg-blue-500 hover:bg-blue-600 text-white font-semibold px-4 py-2 md:px-6 md:py-3 rounded-lg shadow-md transition-colors focus:outline-none focus:ring-2 focus:ring-blue-400 cursor-pointer flex items-center gap-2"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
